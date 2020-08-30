@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <style>
     .table {
 		width: 350px;
