@@ -2,8 +2,12 @@
  $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
  var_export(count($arr));
  echo '<br>' ;
- echo $arr[4], $arr[5], $arr [6], $arr[7], $arr[8], $arr[0], $arr[1], $arr[2], $arr[3];
+ $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
+ $newarr = array_splice($arr, 4);
+ array_push($newarr, 1, 2, 3, 7);
+ var_export($newarr);
  echo '<br>' ;
+ $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
  echo $arr[4] + $arr[5] + $arr[6];
  $firstArr = [
 	'one' => 1,
@@ -45,12 +49,11 @@
 		];
 	var_export(array_diff_ukey($secondArr, $firstArr, 'key_compare_func'));
 	echo '<br>';
-	$result = array_diff($firstArr, $secondArr);
-	var_export($result);
+	var_export(array_diff_key($firstArr, $secondArr));
 	echo '<br>';
 	var_export(array_intersect_assoc($firstArr, $secondArr));
 	echo '<br>';
-	$result = array_diff($secondArr, $firstArr);
+	$result = array_diff_assoc($firstArr, $secondArr);
 	var_export($result);
 	echo '<br>';
 	$firstArr = [
