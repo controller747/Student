@@ -3,9 +3,10 @@
  var_export(count($arr));
  echo '<br>' ;
  $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
- $newarr = array_splice($arr, 4);
- array_push($newarr, 1, 2, 3, 7);
- var_export($newarr);
+ $newarr = array_slice($arr, 4);
+ $newarr1 = array_slice($arr, 0, -5);
+ $result = array_merge($newarr, $newarr1);
+ var_export($result);
  echo '<br>' ;
  $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
  echo $arr[4] + $arr[5] + $arr[6];
@@ -82,11 +83,18 @@
 	echo '<br>';
 	echo count($firstArr, COUNT_RECURSIVE);
 	echo '<br>';
-	$arr = array_sum($firstArr);
-	$arr1 = array_sum($firstArr['two']); 
-	$arr2 = array_sum($firstArr['three']);
-	$arr3 = array_sum($firstArr['five']);
-	echo $arr + $arr1 + $arr2 + $arr3;
+	function sum_array_multi($firstArr, $sum = []){
+		foreach($firstArr as $key=>$value) {
+			if (is_array($value))
+				$sum = sum_array_multi($value, $sum);
+			else
+				$sum[$key] += (int)$value;
+		}
+		return $sum;
+	}
+	$sum = sum_array_multi($firstArr);
+	$sum1 = array_sum($sum);
+	var_export($sum1);
 		
  //$arr = [
 	//'one' => 1,
@@ -130,7 +138,7 @@
 	 // 'one' => 1,
 	 // 'two' => 2,
 	//]];
-	//foreach($ar4 as $key => $value) {
+	//foreach($ar4 as $key => $value) { 
 		//if (is_array($ar4[$key])) {
 			//foreach($ar4[$key] as $key1 => $value1) {
 				//echo $value1;
