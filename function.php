@@ -1,8 +1,8 @@
 <?php
-$var = 'bumbox';
+$var = 'bigbadabum';
 function functype($var)
 {
-	if ($var){
+	if (($var) != bool){
 		echo gettype($var);
 	}
 	else
@@ -12,8 +12,7 @@ functype($var);
 echo '<br>';
 function functype1($var)
 {
-	if (gettype($var) != integer){
-		
+	if (gettype($var) === string){
 		echo substr_count($var, 'b');
 	}
 	else {
@@ -41,11 +40,11 @@ function functype3($square, $square1){
 }
 functype3($square, $square);
 echo '<br>'; // а вот этот вариант сработал)
-function functype4($sqSide, $sqSide1){
+function findSqr($sqSide, $sqSide1){
     return (float)($sqSide * $sqSide) / ($sqSide1 * $sqSide1);
 }
 
-echo functype4(20, 4);
+echo findSqr(20, 4);
 
 
 
