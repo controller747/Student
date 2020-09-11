@@ -41,11 +41,11 @@ function functype3($square, $square1){
 }
 functype3($square, $square);
 echo '<br>'; // а вот этот вариант сработал)
-function findSqr($sqSide, $sqSide1){
+function functype4($sqSide, $sqSide1){
     return (float)($sqSide * $sqSide) / ($sqSide1 * $sqSide1);
 }
 
-echo findSqr(20, 4);
+echo functype4(20, 4);
 
 
 
