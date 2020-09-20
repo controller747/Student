@@ -1,15 +1,14 @@
 <?php
-namespace Router;
+namespace core;
 {
 	class Router
 	{
 		protected $name = ['Ivan', 'Petrov'];
 		
-		public function run($name)
+		public function run()
 		{
-			var_export($name);
+			$this->name;
+			var_export($this);
 		}
 	}
 }
-$router = new Router;
-echo var_export($router);
