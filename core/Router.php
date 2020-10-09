@@ -1,6 +1,8 @@
 <?php
 namespace Core;
 
+use App\Controllers\LoosController;
+
 /**
  * Router
  */
@@ -27,7 +29,8 @@ final class Router
 			}
 
 		} else {
-			header("HTTP/1.0 404 Not Found");
+			$loos = new LoosController();
+			$loos->indexAction();
 		}
 	}              
 
